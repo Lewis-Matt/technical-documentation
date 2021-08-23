@@ -1,0 +1,137 @@
+html, body {
+    font-family: 'Urbanist', sans-serif;
+    background-color: whitesmoke;
+    color: #424242;
+    line-height: 1.5;
+    min-width: 290px;
+}
+
+#navbar {
+    position: fixed;
+    min-width: 290px;
+    top: 0px;
+    left: 0px;
+    width: 300px;
+    height: 100%;
+    border-right: solid #424242;
+}
+
+header {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    font-size: 1.7em;
+    font-weight: 600;
+}
+
+#main-doc header {
+    text-align: left;
+    margin: 0px;
+}
+
+p {
+    margin: 15px;
+}
+
+#navbar ul {
+    /* browser provides scroll bars (x & y) if content overflows. Note that horizontal
+    scroll bars are bad practice so it would be better to use overflow-x: hidden.  In this
+    case the min-width property is set above in #navbar{} */
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 88%;
+    padding: 0;
+}
+
+#navbar li {
+    border-top: 2px solid #424242;
+    /* removes bullets */
+    list-style: none;
+    /* relative - the element is positioned according to doc flow, and offests are relative
+    to itself, based on top, right, bottom, left. The offset does not affect the position of
+    other elements */
+    position: relative;
+    /* full width of ul */
+    width: 100%;
+}
+
+#navbar a {
+    /* displays element as a block: starts on new line and takes up the whole width */
+    display: block;
+    padding: 10px 30px;
+    /* changes cursor to finger when you go over link */
+    cursor: pointer;
+    /* removes default link underline */
+    text-decoration: none;
+    color: black;
+}
+
+#main-doc {
+    /* if an absolute positioned element has no positioned ancestors, it uses the document body, 
+    and moves along with page scrolling. Otherwise, it is positioned relative to the nearest 
+    positioned ancestor */
+    position: absolute;
+    /* margin slightly larger than navbar width */
+    margin-left: 310px;
+    padding: 20px;
+    margin-bottom: 110px;
+}
+
+section article {
+    margin: 15px;
+    font-size: .96em;
+}
+
+section li {
+    margin: 15px 0px 0px 50px;
+}
+
+code {
+    display: block;
+    text-align: left;
+    background-color: #ccc;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 7px;
+    /* Sequences of white space are collapsed. Lines are broken at newline characters, 
+    at <br>, and as necessary to fill line boxes. */
+    white-space: pre-line;
+    position: relative;
+    line-height: 2;
+    /* The word-break CSS property sets whether line breaks appear wherever the text 
+    would otherwise overflow its content box. */
+    word-break: normal;
+    /* will only create a break if an entire word cannot be placed on its own line without overflowing. */
+    word-wrap: normal;
+}
+
+/* The width media query compares the values you feed it to the layout viewport. Thus, this is used in 
+conjunction with "meta name=viewport..." in the html */
+/* Changes the parameter only when the viewport is 600px wide or less, e.g. mobile */
+@media only screen and (max-width: 815px) {
+    #navbar ul {
+        border: 1px solid;
+        height: 207px; 
+    }
+
+    #navbar {
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-height: 270px;
+        border: none;
+        border-bottom: 2px solid #424242;
+        background-color:whitesmoke;
+        /* moves to the front of the stack (i.e. towards viewer) */
+        z-index: 1;
+    }
+
+    #main-doc {
+        position: relative;
+        margin-left: 0px;
+        /* must be > max-height of navbar */
+        margin-top: 270px;
+    }
+}

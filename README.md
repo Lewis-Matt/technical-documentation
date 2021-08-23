@@ -38,3 +38,4 @@
 
 ### Lessons Learned
 
+* Lessons learned are documented as comments in styles.css
